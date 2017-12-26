@@ -57,7 +57,7 @@ public class ExcelDataConversionImpl implements ExcelDataConversionService {
             }
             return sectionDataList;
         } catch (IOException ex) {
-
+            //log the error.
         }
         return sectionDataList;
     }
