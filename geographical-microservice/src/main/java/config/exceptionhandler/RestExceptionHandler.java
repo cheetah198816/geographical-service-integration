@@ -16,16 +16,16 @@ import javax.persistence.EntityNotFoundException;
 @ControllerAdvice
 public class RestExceptionHandler {
 
-    @ExceptionHandler(RuntimeException.class)
-    protected ResponseEntity<Object> handleAllOtherExceptions(
-            RuntimeException ex) {
-        return buildResponseEntity(new ApiError(HttpStatus.BAD_GATEWAY, ex.getMessage(), ex));
-    }
-
     @ExceptionHandler(EntityNotFoundException.class)
     protected ResponseEntity<Object> handleEntityNotFound(
             EntityNotFoundException ex) {
         return buildResponseEntity(new ApiError(HttpStatus.NOT_FOUND, ex.getMessage(), ex));
+    }
+
+    @ExceptionHandler(RuntimeException.class)
+    protected ResponseEntity<Object> handleAllOtherExceptions(
+            RuntimeException ex) {
+        return buildResponseEntity(new ApiError(HttpStatus.BAD_GATEWAY, ex.getMessage(), ex));
     }
 
     private ResponseEntity<Object> buildResponseEntity(ApiError apiError) {

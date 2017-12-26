@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import services.GeographicalProcess;
 import services.GeographicalService;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -49,12 +50,16 @@ public class GeographicalServiceImpl implements GeographicalService {
     public GetResultsResponse getResults(Long jobId) {
         final GetResultsResponse getResultsResponse = new GetResultsResponse();
         final JobEntity jobEntity = geographicalProcess.findById(jobId);
-        getResultsResponse.setJobId(jobEntity.getId());
-        getResultsResponse.setJobName(jobEntity.getJobName());
         final List<SectionData> sectionDatas = jobEntity.getSectionEntityList().stream()
                 .map(sectionEntity -> SectionEntityMapper.entity2Dto(sectionEntity))
                 .collect(Collectors.toList());
-        getResultsResponse.setSectionDatas(sectionDatas);
+        if (!sectionDatas.isEmpty()) {
+            getResultsResponse.setSectionDatas(sectionDatas);
+        } else {
+            throw new EntityNotFoundException("File does not exist or not processed yet.");
+        }
+        getResultsResponse.setJobId(jobEntity.getId());
+        getResultsResponse.setJobName(jobEntity.getJobName());
 
         return getResultsResponse;
     }
