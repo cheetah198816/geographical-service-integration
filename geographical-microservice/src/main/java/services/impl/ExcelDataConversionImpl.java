@@ -36,10 +36,10 @@ public class ExcelDataConversionImpl implements ExcelDataConversionService {
 
     @Override
     public List<SectionData> convertExcelToDto(JobEntity jobEntity) {
-        FileInputStream excelFile = null;
+        FileInputStream excelFile;
+        final List<SectionData> sectionDataList = new ArrayList<>();
+        Workbook workbook;
         try {
-            final List<SectionData> sectionDataList = new ArrayList<>();
-            Workbook workbook = null;
             excelFile = new FileInputStream(new File(fileConfiguration.getBaseFilePath() + jobEntity.getFileName()));
             if (jobEntity.getFileName().contains(".xlsx")) {
                 workbook = new XSSFWorkbook(excelFile);
@@ -56,8 +56,9 @@ public class ExcelDataConversionImpl implements ExcelDataConversionService {
             }
             return sectionDataList;
         } catch (IOException ex) {
-            return null;
+
         }
+        return sectionDataList;
     }
 
     private void setRowData(List<SectionData> sectionDataList, Iterator<Row> iterator) {
