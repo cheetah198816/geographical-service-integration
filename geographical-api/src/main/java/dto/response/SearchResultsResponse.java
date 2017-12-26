@@ -13,5 +13,5 @@ import java.util.List;
 public class SearchResultsResponse {
 
     @JsonPropertyDescription("Section Data List according to the search query.")
-    List<SectionData> sectionDatas;
+    private List<SectionData> sectionDatas;
 }

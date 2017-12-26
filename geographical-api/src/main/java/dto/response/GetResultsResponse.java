@@ -19,5 +19,5 @@ public class GetResultsResponse {
     private String jobName;
 
     @JsonPropertyDescription("List of Section Datas and their respective Geographical Classes.")
-    List<SectionData> sectionDatas;
+    private List<SectionData> sectionDatas;
 }

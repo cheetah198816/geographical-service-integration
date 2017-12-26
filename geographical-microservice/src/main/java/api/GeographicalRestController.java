@@ -16,7 +16,7 @@ import services.GeographicalService;
 public class GeographicalRestController {
 
     @Autowired
-    GeographicalService geographicalService;
+    private GeographicalService geographicalService;
 
     /**
      * Registers a job for processing.
