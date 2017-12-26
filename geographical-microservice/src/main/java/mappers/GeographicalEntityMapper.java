@@ -2,7 +2,6 @@ package mappers;
 
 import dto.excel.GeographicalClassData;
 import model.GeographicalClassesEntity;
-import model.SectionEntity;
 import org.springframework.stereotype.Component;
 
 /**
