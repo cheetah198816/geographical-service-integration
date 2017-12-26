@@ -38,11 +38,13 @@ public class GeographicalProcessImpl implements GeographicalProcess {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public JobEntity findById(Long jobId) {
         return jobRepository.findById(jobId).orElseThrow(() -> new EntityNotFoundException("Job Entity not found for the job Id : " + jobId));
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<SectionEntity> findByNameAndCode(String name, String code, Long jobId) {
         if (name != null && code != null) {
             return sectionRepository.findByNameAndCode(name, code, jobId);
