@@ -36,9 +36,10 @@ public class ExcelDataConversionImpl implements ExcelDataConversionService {
 
     @Override
     public List<SectionData> convertExcelToDto(JobEntity jobEntity) {
-        FileInputStream excelFile;
+        final FileInputStream excelFile;
         final List<SectionData> sectionDataList = new ArrayList<>();
-        Workbook workbook;
+        final Workbook workbook;
+        final int numberOfSheets;
         try {
             excelFile = new FileInputStream(new File(fileConfiguration.getBaseFilePath() + jobEntity.getFileName()));
             if (jobEntity.getFileName().contains(".xlsx")) {
@@ -46,7 +47,7 @@ public class ExcelDataConversionImpl implements ExcelDataConversionService {
             } else {
                 workbook = new HSSFWorkbook(excelFile);
             }
-            int numberOfSheets = workbook.getNumberOfSheets();
+            numberOfSheets = workbook.getNumberOfSheets();
             for (int i = 0; i < numberOfSheets; i++) {
                 Sheet s = workbook.getSheetAt(i);
                 Iterator<Row> iterator = s.iterator();
