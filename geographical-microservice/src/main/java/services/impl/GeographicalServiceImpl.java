@@ -1,25 +1,18 @@
 package services.impl;
 
-import config.FileConfiguration;
 import dto.excel.SectionData;
 import dto.request.RegisterJobRequest;
 import dto.response.GetResultsResponse;
 import dto.response.RegisterJobResponse;
 import dto.response.SearchResultsResponse;
 import gateway.GeographyGateway;
-import mappers.JobEntityMapper;
 import mappers.SectionEntityMapper;
-import model.GeographicalClassesEntity;
 import model.JobEntity;
 import model.SectionEntity;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.task.TaskExecutor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import repositories.GeographicalClassesRepository;
-import repositories.JobRepository;
-import repositories.SectionRepository;
 import services.GeographicalProcess;
 import services.GeographicalService;
 
@@ -59,8 +52,8 @@ public class GeographicalServiceImpl implements GeographicalService {
         getResultsResponse.setJobId(jobEntity.getId());
         getResultsResponse.setJobName(jobEntity.getJobName());
         final List<SectionData> sectionDatas = jobEntity.getSectionEntityList().stream()
-                    .map(sectionEntity -> SectionEntityMapper.entity2Dto(sectionEntity))
-                    .collect(Collectors.toList());
+                .map(sectionEntity -> SectionEntityMapper.entity2Dto(sectionEntity))
+                .collect(Collectors.toList());
         getResultsResponse.setSectionDatas(sectionDatas);
 
         return getResultsResponse;
