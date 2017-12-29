@@ -13,6 +13,14 @@ This microservice contains one main module :
 
 The database used is In Memory Database(H2). You can also use PostGreSql 10. Please ensure you have it installed on the system and the relevant database and schema is created. You can find the database and the schema in the application properties spring.datasource.url property.
 
+**Basic Authentication** :
+
+Basic Authentication is supported. The credentials are 
+
+**Username** : user
+
+**Password** : abcd1234
+
 **Base File Path** : 
 
 The base file path property is present in the application.properties of the geographical-microservice module in the resources folder of the test and main.
