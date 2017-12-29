@@ -20,7 +20,7 @@ You can change the file path property accordingly.
 
 **Integration Tests** :
 
-For running the Integration Tests please ensure that the sample geodata.xls file is in the file path. You can find the sample file in the test/resources folder of the geographical-microservice module.
+For running the Integration Tests please ensure that the sample geodata.xls file is in the base file path. You can find the sample file in the test/resources folder of the geographical-microservice module.
 
 **Endpoints Test** :
 
