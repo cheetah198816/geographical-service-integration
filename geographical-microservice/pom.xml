@@ -12,12 +12,12 @@
     <artifactId>geographical-microservice</artifactId>
     <dependencies>
     <dependency>
-        <groupId>itc.geographicalservice</groupId>
+        <groupId>itc.geographical</groupId>
         <artifactId>geographical-api</artifactId>
         <version>${project.version}</version>
     </dependency>
     <dependency>
-        <groupId>itc.geographicalservice</groupId>
+        <groupId>itc.geographical</groupId>
         <artifactId>geographical-model</artifactId>
         <version>${project.version}</version>
     </dependency>

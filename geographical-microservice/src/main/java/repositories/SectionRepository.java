@@ -1,8 +1,8 @@
 package repositories;
 
 import model.SectionEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
@@ -12,7 +12,7 @@ import java.util.List;
  * Created by chetan on 22.12.2017.
  */
 @Repository
-public interface SectionRepository extends CrudRepository<SectionEntity, Long> {
+public interface SectionRepository extends JpaRepository<SectionEntity, Long> {
 
     @Query("select s from SectionEntity s, GeographicalClassesEntity g " +
             "where s.id = g.section.id and g.name = :name and s.job.id=:jobId")

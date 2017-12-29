@@ -1,5 +1,6 @@
 package dto.excel;
 
+import com.fasterxml.jackson.annotation.JsonClassDescription;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 import lombok.Data;
 
@@ -7,6 +8,7 @@ import lombok.Data;
  * Created by chetan on 23.12.2017.
  */
 @Data
+@JsonClassDescription("Geographical Class Data")
 public class GeographicalClassData {
 
     @JsonPropertyDescription("Id of the Geographical Class.")

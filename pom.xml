@@ -14,9 +14,9 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>geographical-microservice</module>
         <module>geographical-api</module>
         <module>geographical-model</module>
+        <module>geographical-microservice</module>
     </modules>
 
     <dependencies>

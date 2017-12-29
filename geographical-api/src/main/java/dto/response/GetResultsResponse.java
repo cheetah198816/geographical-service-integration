@@ -1,5 +1,6 @@
 package dto.response;
 
+import com.fasterxml.jackson.annotation.JsonClassDescription;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 import dto.excel.SectionData;
 import lombok.Data;
@@ -10,6 +11,7 @@ import java.util.List;
  * Created by chetan on 23.12.2017.
  */
 @Data
+@JsonClassDescription("Response dto containing parsed results.")
 public class GetResultsResponse {
 
     @JsonPropertyDescription("Job Id.")
